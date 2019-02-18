@@ -28,3 +28,10 @@ e1xy=.rtf
 0M8R4=MS Office document .doc .xls .ppt
 0M8R4KGxGuE=embedded office docs
 UEsDB=embedded office docs
+
+
+Pour les certificats (méthode de détection "not known-good") :
+Tous les certificats X.509 encodés commencent par "—–BEGIN CERTIFICATE—–" suivis de la lettre M.
+Donc, tous les fichiers certificats qui ne contiennent pas "—–BEGIN CERTIFICATE—–" suivi de la lettre M ne sont pas un certificat X.509 valide.
+    strings:
+        $re1 = /-----BEGIN CERTIFICATE-----\r\n[^M]/
